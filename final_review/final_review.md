@@ -318,3 +318,66 @@ Patch: bug修复之类的细节更改, 风险极低
   - Lack of Cohesion in Methods (LCOM) (不是很懂, 会的同学欢迎提个PR捏)
 
 ## 9. Evolution
+
+### Metrics about Maintainance
+
+- Number of requests for corrective maintenance (纠正性维护 (即改出来bug) 的数量)
+- Average time requried for impact analysis (影响分析所需要的平均时间)
+- Average time taken to implement a change request. (change 发起需要的平均时间)
+
+### Code Smells
+
+- **Bloaters**: 代码臃肿, 一般随着程序发展逐渐累积
+  - Long Method
+  - Long Parameters
+
+- **OO Abuser**: 不正确使用面向对象
+  - Refused Bequest: 子类不需要父类提供的所有行为, 继承可能没有意义
+  - Change Preventers: 如果修改某些地方, 则其他地方也必须修改
+- **Couplers**: 代码耦合过高
+  - Feature Envy: 代码访问一个对象的数据多余它自己的的数据
+- **Dispensibles: **无意义的东西
+
+
+
+## 10. Document
+
+貌似没啥好记的 (绝对不是作者没时间写了)
+
+
+
+## 11. Testing
+
+### Concepts
+
+- Test Case: 某个测试用例
+- Test Suite 测试不同场景的某个任务
+- **Unit Testing **单元测试: 测试某个组件是否工作正常
+- **Integration Testing** 集成测试: 测试模块之间交互与行为是否正常
+- **System Testing** 系统测试: 测试产品的可靠性是否满足业务规范 (由专门的测试团队进行)
+- **Acceptance Testing** 验收测试: 测试能否正查为用户提供服务
+
+
+
+### Techniques
+
+- **Black Box Testing** 假设内部结构未知
+  - **Pros** 简单, 结果逼真
+  - **Cons** 覆盖率有限, 测试很可能不完整
+- **White Box Testing** 代码内部逻辑已知
+  - **Pros** 测试全面
+  - **Cons** 需要专业技术, 且无法完美模拟真实世界
+
+
+
+### Test Doubles
+
+- Fakes  删除不必要的依赖. 例如: 测试数据库查询的语句可以使用本地数据库.本地数据库就是一个“Fake”
+- Stubs  模拟某种状态.例如要测试当服务器返回404会怎么样, 可以用一个**总是返回404**的api模拟
+- Mocks 类似stubs. 但增加了验证功能(看不太懂, 有大佬可以指点一下). 例如, 要测试一个上传文件的系统, 可以构建一个mock, 接受一个文件并断言上传的文件一定是正确的.
+
+
+
+## 12. CI/CD
+
+## 13. AI
